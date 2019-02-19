@@ -10,7 +10,11 @@ const AREAS = ["CW"];
 
         let dataTable = [];
 
-        const browser = await puppeteer.launch();
+        const browser = await puppeteer.launch({
+            headless: true,
+            executablePath:'/app/node_modules/puppeteer/.local-chromium/linux-499413/chrome-linux/chrome',
+            args: ['--no-sandbox', '--disable-setuid-sandbox'],
+        });
         const page = await
         browser.newPage();
         page.setViewport({
@@ -77,6 +81,7 @@ const AREAS = ["CW"];
             line = line + '"' + data[i].area + '","' + data[i].density + '","' + data[i].name + '","' + data[i].status + '","' + data[i].county + '","' + data[i].population1991_04_21 + '","' + data[i].population1996_04_28 + '","' + data[i].population2002_04_28 + '","' + data[i].population2006_04_23 + '","' + data[i].population2011_04_10 + '","' + data[i].population2016_04_24 + '"';
             body = body + "\n" + line;
         }
+        let A = "test";
         fs.writeFileSync("citypopulation_de-" + A + ".csv", body);
         
         console.log("\n\nScrape Complete. ");

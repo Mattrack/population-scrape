@@ -1,11 +1,25 @@
 # population-scrape
 
-To run;
+## Setup
 
-`git clone <repo-url>`
+```
+$ git clone <repo-url>
 
-`cd <repo-url>`
+$ cd <repo-url>
 
-`node main.js`
+$ docker build -t population-scrape .
+```
 
-This will generate a data a **.csv** file with the population data from citypopulation.de website.
+## Run
+
+```
+$ docker run -it population-scrape
+```
+
+This will generate a **.csv** file with the population data from citypopulation.de website.
+
+## Extract
+
+```
+$ docker cp <container-ID>/app/citypopulation_de-test.csv .
+```

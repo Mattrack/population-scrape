@@ -4,6 +4,7 @@
   "description": "population-scrape",
   "main": "main.js",
   "scripts": {
+    "start": "./node_modules/.bin/babel-node main.js",
     "test": "echo \"Error: no test specified! Configure in package.json\" && exit 1"
   },
   "dependencies": {
@@ -22,6 +23,9 @@
   "license": "MIT",
   "readmeFilename": "README.md",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-polyfill": "^6.26.0",
     "eslint": "^5.12.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-standard": "^12.0.0",
